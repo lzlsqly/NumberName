@@ -105,12 +105,14 @@ namespace NumberNameClass.Tests
         public void 当输入整数小于1000000大于等于1000测试()
         {
             Assert.AreEqual(NumberClass.NumberName(6235000), "six million and two hundred and thirty five thousand");
-            //Assert.AreEqual(NumberClass.NumberName(9762007), "nine hundred and eighty seven");
-            //Assert.AreEqual(NumberClass.NumberName(8753093), "eight hundred and ninety three");
-            //Assert.AreEqual(NumberClass.NumberName(5273509), "five hundred and ninety nine");
-            //Assert.AreEqual(NumberClass.NumberName(9863623), "five hundred and ninety nine");
+            Assert.AreEqual(NumberClass.NumberName(6235123), "six million and two hundred and thirty five thousand and one hundred and twenty three");
+            Assert.AreEqual(NumberClass.NumberName(236235123), "two hundred and thirty six million and two hundred and thirty five thousand and one hundred and twenty three");
+            Assert.AreEqual(NumberClass.NumberName(6235000), "six million and two hundred and thirty five thousand");
+            Assert.AreEqual(NumberClass.NumberName(6235123), "six million and two hundred and thirty five thousand and one hundred and twenty three");
+            Assert.AreEqual(NumberClass.NumberName(1236235123), "one billion and two hundred and thirty six million and two hundred and thirty five thousand and one hundred and twenty three");
+            Assert.AreEqual(NumberClass.NumberName(21236235123), "twenty one billion and two hundred and thirty six million and two hundred and thirty five thousand and one hundred and twenty three");
+            Assert.AreEqual(NumberClass.NumberName(321236235123), "three hundred and twenty one billion and two hundred and thirty six million and two hundred and thirty five thousand and one hundred and twenty three");          
         }
-
-
+        
     }
 }

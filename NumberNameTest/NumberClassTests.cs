@@ -97,19 +97,20 @@ namespace NumberNameClass.Tests
             Assert.AreEqual(NumberClass.NumberName(200123), "two hundred thousand and one hundred and twenty three");
             Assert.AreEqual(NumberClass.NumberName(201123), "two hundred and one thousand and one hundred and twenty three");
             Assert.AreEqual(NumberClass.NumberName(201023), "two hundred and one thousand and twenty three");
+            Assert.AreEqual(NumberClass.NumberName(201020), "two hundred and one thousand and twenty");
             Assert.AreEqual(NumberClass.NumberName(201003), "two hundred and one thousand and three");
         }
-        //[TestMethod()]
+        [TestMethod()]
 
-        //public void 当输入整数小于1000000大于等于1000测试()
-        //{
-        //    Assert.AreEqual(NumberClass.NumberName(2346000), "six hundred and seventy six");
-        //    Assert.AreEqual(NumberClass.NumberName(9762007), "nine hundred and eighty seven");
-        //    Assert.AreEqual(NumberClass.NumberName(8753093), "eight hundred and ninety three");
-        //    Assert.AreEqual(NumberClass.NumberName(5273509), "five hundred and ninety nine");
-        //    Assert.AreEqual(NumberClass.NumberName(9863623), "five hundred and ninety nine");
-        //}
+        public void 当输入整数小于1000000大于等于1000测试()
+        {
+            //Assert.AreEqual(NumberClass.NumberName(6235000), "six million and two hundred and thirty five thousand");
+            //Assert.AreEqual(NumberClass.NumberName(9762007), "nine hundred and eighty seven");
+            //Assert.AreEqual(NumberClass.NumberName(8753093), "eight hundred and ninety three");
+            //Assert.AreEqual(NumberClass.NumberName(5273509), "five hundred and ninety nine");
+            //Assert.AreEqual(NumberClass.NumberName(9863623), "five hundred and ninety nine");
+        }
 
-        
+
     }
 }

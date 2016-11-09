@@ -9,8 +9,8 @@ namespace NumberNameClass
     public static class NumberClass
     {
         private  static  string[] numberName = new[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seveteen", "eighteen", "nineteen", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
-        private static long[] rate = new long[] { 100, 1000, 1000000, 1000000000 };
-        private static string[] ratename = new[] { "hundred", "thousand", "million", "billion" };
+        private static long[] rate = new long[] { 100, 1000, 1000000, 1000000000, 1000000000000 };
+        private static string[] ratename = new[] { "hundred", "thousand", "million", "billion", "trillion" };
 
         public static string NumberName(long number)
         {
@@ -26,7 +26,7 @@ namespace NumberNameClass
                 result = IntegerRemainder(number);
             }
             //1000-999999
-            if (number >= 1000)
+            if (number > 1000)
             {
                 for (int i = rate.Length - 1; i > 0; i--)
                 {
@@ -35,7 +35,7 @@ namespace NumberNameClass
                         result = result + IntegerMultiples(number) ;
                         number = number%rate[i];
                         if(number>999)
-                             result= result+" and "; ;
+                             result= result+" and ";
                         if (number == 0)
                             return result;
                     }

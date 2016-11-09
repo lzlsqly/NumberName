@@ -111,7 +111,11 @@ namespace NumberNameClass.Tests
             Assert.AreEqual(NumberClass.NumberName(6235123), "six million and two hundred and thirty five thousand and one hundred and twenty three");
             Assert.AreEqual(NumberClass.NumberName(1236235123), "one billion and two hundred and thirty six million and two hundred and thirty five thousand and one hundred and twenty three");
             Assert.AreEqual(NumberClass.NumberName(21236235123), "twenty one billion and two hundred and thirty six million and two hundred and thirty five thousand and one hundred and twenty three");
-            Assert.AreEqual(NumberClass.NumberName(321236235123), "three hundred and twenty one billion and two hundred and thirty six million and two hundred and thirty five thousand and one hundred and twenty three");          
+            Assert.AreEqual(NumberClass.NumberName(321236235123), "three hundred and twenty one billion and two hundred and thirty six million and two hundred and thirty five thousand and one hundred and twenty three");
+            Assert.AreEqual(NumberClass.NumberName(1321236235123), "one trillion and three hundred and twenty one billion and two hundred and thirty six million and two hundred and thirty five thousand and one hundred and twenty three");
+            Assert.AreEqual(NumberClass.NumberName(21321236235123), "twenty one trillion and three hundred and twenty one billion and two hundred and thirty six million and two hundred and thirty five thousand and one hundred and twenty three");
+            Assert.AreEqual(NumberClass.NumberName(321321236235123), "three hundred and twenty one trillion and three hundred and twenty one billion and two hundred and thirty six million and two hundred and thirty five thousand and one hundred and twenty three");
+
         }
         
     }

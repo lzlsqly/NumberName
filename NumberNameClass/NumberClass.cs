@@ -15,40 +15,16 @@ namespace NumberNameClass
         public static string NumberName(long number)
         {
             string result = "";
-
-            //0-20
-            if (number<=20)
+            for (int i = 0; i < rate.Length; i++)
             {
-                result = numberName[number];
-                return result;
+                if (number == rate[i])
+                    return "one " + ratename[i];
             }
-            //20-99
-            if (number > 20 && number<100)
+            //1-999
+            if (number < 1000)
             {
-                result = numberName[number/10 + 18];
-                if (number%10 > 0)
-                {
-                    result = result + " " + numberName[number%10];
-                }
-               return result;
+                result = IntegerRemainder(number);
             }
-            
-            //100-999
-            if (number >= 100 && number < 1000)
-            {
-                result = numberName[number / 100] + " " + ratename[0];
-                if (number % 100 > 20)
-                {
-                    result = result + " and " + numberName[number % 100 / 10 + 18];
-                    result = result + " " + numberName[number % 10];
-                }
-                if(number %100 <=20 && number % 100 > 0)
-                {
-                    result = result + " and " + numberName[number % 100];
-                }
-                return result;
-            }
-            
             //1000-999999
             if (number >= 1000)
             {
@@ -56,11 +32,15 @@ namespace NumberNameClass
                 {
                     if (number/rate[i] > 0)
                     {
-                        result = result + IntegerMultiples(number);
+                        result = result + IntegerMultiples(number) ;
+                        number = number%rate[i];
+                        if(number>999)
+                             result= result+" and "; ;
+                        if (number == 0)
+                            return result;
                     }
                 }
-
-                result = result + IntegerRemainder(number);
+                result = result + " and " + IntegerRemainder(number);
             }
             
             return result;
@@ -101,24 +81,30 @@ namespace NumberNameClass
         private static string IntegerRemainder(long number)
         {
             string result = "";
-            for (int i = rate.Length - 1; i > 0; i--)
+
+            if (number <= 20)
             {
-                if (number/rate[i] > 0)
+                result = numberName[number];
+            }
+            if (number > 20 && number < 100)
+            {
+                result = numberName[number / 10 + 18];
+                if (number % 10 > 0)
                 {
-                    if (number% rate[i] >= 100)
-                    {
-                        result = result + " and " + numberName[number% rate[i] / 100] + " " + ratename[i-1];
-                    }
-                    if (number% rate[i] % 100 > 20)
-                    {
-                        result = result + " and " + numberName[number% rate[i] % 100/10 + 18];
-                        result = result + " " + numberName[number% rate[i] % 10];
-                    }
-                    if (number% rate[i] % 100 <= 20 && number% rate[i] % 100 > 0)
-                    {
-                        result = result + " and " + numberName[number% rate[i] % 100];
-                    }
-                    break;
+                    result = result + " " + numberName[number % 10];
+                }
+            }
+            if (number >= 100)
+            {
+                result = numberName[number/100] + " " + ratename[0];
+                if (number%100 > 20)
+                {
+                    result = result + " and " + numberName[number%100/10 + 18];
+                    result = result + " " + numberName[number%10];
+                }
+                if (number%100 <= 20 && number%100 > 0)
+                {
+                    result = result + " and " + numberName[number%100];
                 }
             }
             return result;

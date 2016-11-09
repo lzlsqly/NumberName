@@ -104,7 +104,7 @@ namespace NumberNameClass.Tests
 
         public void 当输入整数小于1000000大于等于1000测试()
         {
-            //Assert.AreEqual(NumberClass.NumberName(6235000), "six million and two hundred and thirty five thousand");
+            Assert.AreEqual(NumberClass.NumberName(6235000), "six million and two hundred and thirty five thousand");
             //Assert.AreEqual(NumberClass.NumberName(9762007), "nine hundred and eighty seven");
             //Assert.AreEqual(NumberClass.NumberName(8753093), "eight hundred and ninety three");
             //Assert.AreEqual(NumberClass.NumberName(5273509), "five hundred and ninety nine");

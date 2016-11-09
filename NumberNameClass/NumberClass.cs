@@ -11,9 +11,9 @@ namespace NumberNameClass
         public static string NumberName(long number)
         {
             string result = "";
-            string[] numberName = new[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seveteen", "eighteen", "nineteen", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety", "hundred", "thousand", "million", "billion", "trillion" };
+            string[] numberName = new[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seveteen", "eighteen", "nineteen", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
             long[] rate = new long[]{ 1000000000, 1000000, 1000, 100, 10 };
-
+            string[] ratename = new[] {"hundred", "thousand", "million", "billion", "trillion"};
             if (number<=20)
             {
                 result = numberName[number];
@@ -22,7 +22,7 @@ namespace NumberNameClass
             
             if (number > 20 && number<100)
             {
-                result = numberName[number/100 + number/10 + 18] ;
+                result = numberName[number/10 + 18];
                 if (number%10 > 0)
                 {
                     result = result + " " + numberName[number%10];
@@ -32,73 +32,54 @@ namespace NumberNameClass
 
             if (number >= 100 && number < 1000)
             {
-                result = numberName[number / 100] + " " + numberName[number/1000 + 18 + 10];
-
-                if (number % 100 > 0)
+                result = numberName[number / 100] + " " + ratename[0];
+                if (number % 100 > 20)
                 {
-                    if (number % 100 > 20)
-                    {
-                        result = result + " and " + numberName[number % 100 / 10 + 18];
-                        result = result + " " + numberName[number % 10];
-                    }
-                    else
-                    {
-                        result = result + " and " + numberName[number % 100];
-                    }
+                    result = result + " and " + numberName[number % 100 / 10 + 18];
+                    result = result + " " + numberName[number % 10];
+                }
+                if(number %100 <=20 && number % 100 > 0)
+                {
+                    result = result + " and " + numberName[number % 100];
                 }
                 return result;
             }
 
             if (number >= 1000 && number < 1000000)
             {
-                if (number/1000 > 99)
+                
+                if (number/1000 >=100)
                 {
-                    result = numberName[number /1000/100] + " " + numberName[number / 1000000 + 18 + 10];
-                    if (number/1000 % 100 > 20)
-                    {
-                        result = result + " and " + numberName[number / 1000 % 100 / 10 + 18];
-                        result = result + " " + numberName[number / 1000 % 10];
-                    }
-                    else
-                    {
-                        if(number / 1000 %10>0)
-                            result = result + " and " + numberName[number / 1000 % 10];
-                    }
+                    result = numberName[number /1000/100] + " " + ratename[0];                    
                 }
-                else if(number / 1000 > 20)
+                if(number/1000 % 100 > 20)
                 {
-                    result = result+ numberName[number / 1000/100 + number / 1000/10 + 18];
-                    result = result + " " + numberName[number/ 1000 % 10];
+                    if (number/1000 >= 100)
+                        result = result + " and ";
+                    result = result + numberName[number / 1000 % 100 / 10 + 18];
+                    result = result + " " + numberName[number / 1000 % 100 % 10];
                 }
-                else
+                if(number / 1000 % 100 <=20 && number /1000 % 100>0 )
                 {
-                    result = numberName[number / 1000];
+                    if (number / 1000 >= 100)
+                        result = result + " and ";
+                    result = result + numberName[number / 1000 %100];
                 }
-                result = result + " " + numberName[number / 1000000 + 18 + 10 + 1];
 
-                if (number % 1000 > 99)
+                result = result + " " + ratename[1];
+
+                if (number % 1000 >=100)
                 {
-                    result = result + " and " + numberName[number % 1000 / 100] + " " + numberName[number / 1000000 + 18 + 10];
-                   
-                    if (number % 1000 % 100 > 20)
-                    {
-                        result = result + " and " + numberName[number % 1000 % 100 / 10 + 18];
-                        result = result + " " + numberName[number % 1000 % 10];
-                    }
-                    else
-                    {
-                        result = result + " and " + numberName[number % 1000 / 100];
-                    }
+                    result = result + " and " + numberName[number % 1000 /100] + " " + ratename[0];
                 }
-                else if (number % 1000 > 20)
+                if (number % 1000 % 100 > 20)
                 {
                     result = result + " and " + numberName[number % 1000 % 100 / 10 + 18];
                     result = result + " " + numberName[number % 1000 % 10];
                 }
-                else
+                if(number % 1000 % 100 <= 20 && number % 1000 % 100>0)
                 {
-                    if(number % 1000 >0)
-                        result = result + " and " + numberName[number % 100];
+                    result = result + " and " + numberName[number % 1000 % 100];
                 }
             }
             return result;

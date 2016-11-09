@@ -63,6 +63,7 @@ namespace NumberNameClass.Tests
         public void 当输入整数小于1000大于20测试()
         {
             Assert.AreEqual(NumberClass.NumberName(100), "one hundred");
+            Assert.AreEqual(NumberClass.NumberName(110), "one hundred and ten");
             Assert.AreEqual(NumberClass.NumberName(223), "two hundred and twenty three");
             Assert.AreEqual(NumberClass.NumberName(114), "one hundred and fourteen");
             Assert.AreEqual(NumberClass.NumberName(345), "three hundred and forty five");
@@ -81,13 +82,16 @@ namespace NumberNameClass.Tests
         {
             Assert.AreEqual(NumberClass.NumberName(1000), "one thousand");
             Assert.AreEqual(NumberClass.NumberName(1001), "one thousand and one");
-            Assert.AreEqual(NumberClass.NumberName(1101), "one thousand and one hundred and one");
             Assert.AreEqual(NumberClass.NumberName(1021), "one thousand and twenty one");
+            Assert.AreEqual(NumberClass.NumberName(1101), "one thousand and one hundred and one");
             Assert.AreEqual(NumberClass.NumberName(1232), "one thousand and two hundred and thirty two");
+            Assert.AreEqual(NumberClass.NumberName(20000), "twenty thousand");
             Assert.AreEqual(NumberClass.NumberName(23000), "twenty three thousand");
+            Assert.AreEqual(NumberClass.NumberName(23100), "twenty three thousand and one hundred");
+            Assert.AreEqual(NumberClass.NumberName(23020), "twenty three thousand and twenty");
+            Assert.AreEqual(NumberClass.NumberName(23120), "twenty three thousand and one hundred and twenty");
             Assert.AreEqual(NumberClass.NumberName(23123), "twenty three thousand and one hundred and twenty three");
             Assert.AreEqual(NumberClass.NumberName(235000), "two hundred and thirty five thousand");
-            Assert.AreEqual(NumberClass.NumberName(23020), "twenty three thousand and twenty");
             Assert.AreEqual(NumberClass.NumberName(235003), "two hundred and thirty five thousand and three");
             Assert.AreEqual(NumberClass.NumberName(653723), "six hundred and fifty three thousand and seven hundred and twenty three");
             Assert.AreEqual(NumberClass.NumberName(200123), "two hundred thousand and one hundred and twenty three");
